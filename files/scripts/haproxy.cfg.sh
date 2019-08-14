@@ -107,7 +107,7 @@ function comma_split {
   for port in $2
   do
     count=$((1+$count))
-    prefix=`echo $1 | sed 's/_x/_$count/'`
+    prefix=`echo $1 | sed "s/_x/_$count/"`
     cat <<EOF
   $prefix$port$3
 EOF
