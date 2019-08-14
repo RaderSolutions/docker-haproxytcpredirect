@@ -25,8 +25,6 @@ reload_conf() {
       return
   fi
 
-  if [  ]
-
   mv /etc/haproxy/haproxy.cfg.next /etc/haproxy/haproxy.cfg
 
   echo "Reloading conf"
