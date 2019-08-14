@@ -64,7 +64,6 @@ EOF
 
 function middle {
   cat <<EOF
-    # this only works with 1.5+ haproxy
     mode tcp
     #option clitcpka
     option tcplog
@@ -76,11 +75,7 @@ function middle {
 
 backend be_def
     mode tcp
-    #option nolinger
-    option tcplog
-    #balance roundrobin
     hash-type consistent
-    #option srvtcpka
 EOF
 }
 

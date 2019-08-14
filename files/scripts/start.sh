@@ -38,18 +38,20 @@ onexit() {
 }
 trap onexit SIGINT SIGTERM EXIT
 
-if [ $RELOAD_TTL -gt 0 ] 
-then
-  echo "Reload config every $RELOAD_TTL seconds"
-else
-  RELOAD_TTL=30
-  echo "Reload config every $RELOAD_TTL seconds"
-fi
+#if [ $RELOAD_TTL -gt 0 ] 
+#then
+#  echo "Reload config every $RELOAD_TTL seconds"
+#else
+#  RELOAD_TTL=30
+#  echo "Reload config every $RELOAD_TTL seconds"
+#fi
 
-if [[ "$BACKEND_OPTS" == "" ]]
+if [ -z "$BACKEND_OPTS" ]
 then
   BACKEND_OPTS="resolvers docker send-proxy"
 fi
 
+reload_conf
+
 run_command "haproxy -f /etc/haproxy/haproxy.cfg"
-while true; do reload_conf; sleep $RELOAD_TTL; done
+#while true; do ; sleep $RELOAD_TTL; done
