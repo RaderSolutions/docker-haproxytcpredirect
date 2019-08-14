@@ -35,10 +35,6 @@ global
 defaults
         #log     global
         hash-type consistent
-        ## tcp keep alive. Likely not useful unless the haproxy host OS is tweaked (then probably still not useful). Not directly related to haproxy timeout values
-        #option tcpka
-        #option clitcpka
-        #option srvtcpka
         option tcplog
         maxconn 1000
         #option  httplog
@@ -48,13 +44,6 @@ defaults
 #        timeout server  3h
         timeout client  900s
         timeout server  900s
-        #errorfile 400 /etc/haproxy/errors/400.http
-        #errorfile 403 /etc/haproxy/errors/403.http
-        #errorfile 408 /etc/haproxy/errors/408.http
-        #errorfile 500 /etc/haproxy/errors/500.http
-        #errorfile 502 /etc/haproxy/errors/502.http
-        #errorfile 503 /etc/haproxy/errors/503.http
-        #errorfile 504 /etc/haproxy/errors/504.http
         default-server init-addr none
 
 

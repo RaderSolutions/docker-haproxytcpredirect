@@ -49,6 +49,7 @@ trap onexit SIGINT SIGTERM EXIT
 if [ -z "$BACKEND_OPTS" ]
 then
   BACKEND_OPTS="resolvers docker send-proxy"
+  export BACKEND_OPTS
 fi
 
 reload_conf
