@@ -8,7 +8,7 @@ run_command() {
   HAPROXY_PID="$!"
 }
 
-reload_conf() {
+load_conf() {
   PREV_MD5=$(md5sum /etc/haproxy/haproxy.cfg | awk '{print $1}')
   CFG_SUCCESS=1
   haproxy.cfg.sh > /etc/haproxy/haproxy.cfg.next || CFG_SUCCESS=0
@@ -27,8 +27,8 @@ reload_conf() {
 
   mv /etc/haproxy/haproxy.cfg.next /etc/haproxy/haproxy.cfg
 
-  echo "Reloading conf"
-  run_command "haproxy -f /etc/haproxy/haproxy.cfg -st $HAPROXY_PID"
+  #echo "Reloading conf"
+  #run_command "haproxy -f /etc/haproxy/haproxy.cfg -st $HAPROXY_PID"
 }
 
 onexit() {
@@ -52,7 +52,7 @@ then
   export BACKEND_OPTS
 fi
 
-reload_conf
+load_conf
 
 #run_command "haproxy -f /etc/haproxy/haproxy.cfg"
 #while true; do ; sleep $RELOAD_TTL; done
