@@ -19,11 +19,11 @@ reload_conf() {
   fi
 
 
-  CURR_MD5=$(md5sum /etc/haproxy/haproxy.cfg.next | awk '{print $1}')
-  if [ "${PREV_MD5}" = "${CURR_MD5}" ]; then
-      echo "Config is the same"
-      return
-  fi
+  #CURR_MD5=$(md5sum /etc/haproxy/haproxy.cfg.next | awk '{print $1}')
+  #if [ "${PREV_MD5}" = "${CURR_MD5}" ]; then
+  #    echo "Config is the same"
+  #    return
+  #fi
 
   mv /etc/haproxy/haproxy.cfg.next /etc/haproxy/haproxy.cfg
 
