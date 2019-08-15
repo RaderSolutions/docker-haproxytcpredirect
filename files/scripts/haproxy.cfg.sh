@@ -55,7 +55,6 @@ function middle {
   cat <<EOF
     mode tcp
     #option clitcpka
-    option tcplog
     option socket-stats
     # option nolinger
     #maxconn  300
