@@ -35,7 +35,7 @@ global
 defaults
         #log     global
         hash-type consistent
-        option tcplog
+        #option tcplog
         maxconn 1000
         #option  httplog
         option  dontlognull
