@@ -14,9 +14,14 @@ USAGE
 }; function --help { -h ;}
 
 function header {
+  loglevel="info"
+  if [[ $VERBOSE = 1 ]]
+  then
+    loglevel="debug"
+  fi
   cat <<EOF
 global
-        log /dev/stdout  local0  info
+        log /dev/stdout  local0  $loglevel
         #log /dev/log    local0
         #log /dev/log    local1 notice
         chroot /tmp
