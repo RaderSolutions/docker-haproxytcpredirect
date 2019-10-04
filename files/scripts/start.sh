@@ -52,6 +52,12 @@ then
   export BACKEND_OPTS
 fi
 
+if [ -z "$VERBOSE" ]
+then
+  VERBOSE=0
+  export VERBOSE
+fi
+
 load_conf
 
 #run_command "haproxy -f /etc/haproxy/haproxy.cfg"
