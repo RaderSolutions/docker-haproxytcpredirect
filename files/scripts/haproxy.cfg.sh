@@ -16,7 +16,7 @@ USAGE
 function header {
   cat <<EOF
 global
-        log stdout  format raw  local0  info
+        log stdout  local0  info
         #log /dev/log    local0
         #log /dev/log    local1 notice
         chroot /tmp
