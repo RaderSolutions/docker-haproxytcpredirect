@@ -56,5 +56,9 @@ load_conf
 
 #run_command "haproxy -f /etc/haproxy/haproxy.cfg"
 #while true; do ; sleep $RELOAD_TTL; done
+if [[ $VERBOSE = 1 ]]
+then
+  cat /etc/haproxy/haproxy.cfg
+fi
 
 haproxy -db -f /etc/haproxy/haproxy.cfg
