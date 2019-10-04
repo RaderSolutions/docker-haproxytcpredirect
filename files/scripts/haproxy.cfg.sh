@@ -16,6 +16,7 @@ USAGE
 function header {
   cat <<EOF
 global
+        log stdout  format raw  local0  info
         #log /dev/log    local0
         #log /dev/log    local1 notice
         chroot /tmp
@@ -23,27 +24,18 @@ global
         #group haproxy
         daemon
 
-        # Default SSL material locations
-        #ca-base /etc/ssl/certs
-        #crt-base /etc/ssl/private
-
-        # Default ciphers to use on SSL-enabled listening sockets.
-        # For more information, see ciphers(1SSL).
-        #ssl-default-bind-ciphers kEECDH+aRSA+AES:kRSA+AES:+AES256:RC4-SHA:!kEDH:!LOW:!EXP:!MD5:!aNULL:!eNULL
-        #ssl-default-bind-options no-sslv3
-
 defaults
-        #log     global
+        log     global
         hash-type consistent
         #option tcplog
-        maxconn 1000
+        maxconn 0
         #option  httplog
         option  dontlognull
-        timeout connect 5000
+        timeout connect 1000
 #        timeout client  3h
 #        timeout server  3h
-        timeout client  900s
-        timeout server  900s
+        timeout client  300s
+        timeout server  300s
         default-server init-addr none
 
 
@@ -54,16 +46,12 @@ EOF
 function middle {
   cat <<EOF
     mode tcp
-    #option clitcpka
     option socket-stats
-    # option nolinger
-    #maxconn  300
 
     default_backend be_def
 
 backend be_def
     mode tcp
-    hash-type consistent
 EOF
 }
 
