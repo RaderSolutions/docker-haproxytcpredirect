@@ -56,7 +56,6 @@ function middle {
     default_backend be_def
 
 backend be_def
-    mode tcp
 EOF
 }
 
@@ -94,6 +93,7 @@ function config {
   header
   comma_split "bind :" "$PORTS" ""
   middle
+  comma_split "$BACKEND_GLOBAL_OPTS"
   comma_split "server server_x " "$BACKENDS" " $BACKEND_OPTS"
   tail
 }
