@@ -92,9 +92,9 @@ EOF
 
 function config {
   header
-  comma_split "bind :" $PORTS ""
+  comma_split "bind :" "$PORTS" ""
   middle
-  comma_split "server server_x " $BACKENDS " $BACKEND_OPTS"
+  comma_split "server server_x " "$BACKENDS" " $BACKEND_OPTS"
   tail
 }
 
