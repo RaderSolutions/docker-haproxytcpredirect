@@ -43,6 +43,18 @@ defaults
         timeout server  300s
         default-server init-addr none
 
+listen stats
+    bind :8085
+    balance
+    mode http
+    stats enable
+    #stats auth me:password
+    #stats scope .
+    stats refresh 10s
+    stats show-legends
+    stats uri /
+    #log global
+
 
 frontend fe_relay
 EOF
