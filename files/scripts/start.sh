@@ -55,7 +55,7 @@ fi
 if [ -z "$BACKEND_GLOBAL_OPTS" ]
 then
   BACKEND_GLOBAL_OPTS="mode tcp,balance source"
-  export BACKEND_OPTS
+  export BACKEND_GLOBAL_OPTS
 fi
 
 if [ -z "$VERBOSE" ]
